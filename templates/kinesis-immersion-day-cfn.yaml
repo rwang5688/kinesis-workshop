@@ -77,14 +77,14 @@ Resources:
           - { RandomGUID: !Select [0, !Split ["-", !Select [2, !Split ["/", !Ref AWS::StackId ]]]] }
 
 #Cloud9 Instance
-  Cloud9:
-    Type: AWS::Cloud9::EnvironmentEC2
-    Properties:
-      AutomaticStopTimeMinutes: 30
-      Description: Real Time Streaming with Amazon Kinesis Cloud9 IDE 
-      InstanceType: m5.large
-      Name: !Sub "KinesisRealTimeStreaming-${AWS::StackName}"
-      ImageId: amazonlinux-2-x86_64
+#  Cloud9:
+#    Type: AWS::Cloud9::EnvironmentEC2
+#    Properties:
+#      AutomaticStopTimeMinutes: 30
+#      Description: Real Time Streaming with Amazon Kinesis Cloud9 IDE 
+#      InstanceType: m5.large
+#      Name: !Sub "KinesisRealTimeStreaming-${AWS::StackName}"
+#      ImageId: amazonlinux-2-x86_64
 
 #Glue database
   Database:
@@ -443,13 +443,13 @@ Outputs:
   CuratedS3Bucket:
     Value: !Ref CuratedDataSet
     Description: "Curated Data Set S3 Bucket"
-  Cloud9URL:
-    Description: Cloud9 Environment
-    Value:
-      Fn::Join:
-      - ''
-      - - !Sub https://${AWS::Region}.console.aws.amazon.com/cloud9/ide/
-        - !Ref 'Cloud9'
+#  Cloud9URL:
+#    Description: Cloud9 Environment
+#    Value:
+#      Fn::Join:
+#      - ''
+#      - - !Sub https://${AWS::Region}.console.aws.amazon.com/cloud9/ide/
+#        - !Ref 'Cloud9'
   LambdaFunctionArn:
     Description: Lambda Function ARN
     Value: !GetAtt LambdaFunction.Arn
