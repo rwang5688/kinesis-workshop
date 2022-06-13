@@ -198,6 +198,8 @@ Resources:
                 Resource:
                   - !Sub 'arn:aws:s3:::${EEAssetsBucket}/'
                   - !Sub 'arn:aws:s3:::${EEAssetsBucket}/*'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess
 
 #Kinesis Analytics Studio
   KinesisAnalyticsStudio:
